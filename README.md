@@ -1,6 +1,8 @@
-# sqlx
+# roboninc/sqlx
 
-[![Build Status](https://travis-ci.org/jmoiron/sqlx.svg?branch=master)](https://travis-ci.org/jmoiron/sqlx) [![Coverage Status](https://coveralls.io/repos/github/jmoiron/sqlx/badge.svg?branch=master)](https://coveralls.io/github/jmoiron/sqlx?branch=master) [![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/jmoiron/sqlx) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/jmoiron/sqlx/master/LICENSE)
+This is a fork from the [jmoiron/sqlx](https://github.com/jmoiron/sqlx) to keep some maintanance.
+
+[![Build Status](https://travis-ci.org/roboninc/sqlx.svg?branch=master)](https://travis-ci.org/roboninc/sqlx) [![Coverage Status](https://coveralls.io/repos/github/roboninc/sqlx/badge.svg?branch=master)](https://coveralls.io/github/roboninc/sqlx?branch=master) [![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/roboninc/sqlx) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/roboninc/sqlx/master/LICENSE)
 
 sqlx is a library which provides a set of extensions on go's standard
 `database/sql` library.  The sqlx versions of `sql.DB`, `sql.TX`, `sql.Stmt`,
@@ -14,8 +16,8 @@ Major additional concepts are:
 * Named parameter support including prepared statements
 * `Get` and `Select` to go quickly from query to struct/slice
 
-In addition to the [godoc API documentation](http://godoc.org/github.com/jmoiron/sqlx),
-there is also some [user documentation](http://jmoiron.github.io/sqlx/) that
+In addition to the [godoc API documentation](http://godoc.org/github.com/roboninc/sqlx),
+there is also some [user documentation](http://roboninc.github.io/sqlx/) that
 explains how to use `database/sql` along with sqlx.
 
 ## Recent Changes
@@ -46,7 +48,7 @@ will get major version number bumps.
 
 ## install
 
-    go get github.com/jmoiron/sqlx
+    go get github.com/roboninc/sqlx
 
 ## issues
 
@@ -64,7 +66,7 @@ to give columns distinct names, `rows.Scan` to scan them manually, or
 ## usage
 
 Below is an example which shows some common use cases for sqlx.  Check 
-[sqlx_test.go](https://github.com/jmoiron/sqlx/blob/master/sqlx_test.go) for more
+[sqlx_test.go](https://github.com/roboninc/sqlx/blob/master/sqlx_test.go) for more
 usage.
 
 
@@ -77,7 +79,7 @@ import (
     "log"
     
     _ "github.com/lib/pq"
-    "github.com/jmoiron/sqlx"
+    "github.com/roboninc/sqlx"
 )
 
 var schema = `
