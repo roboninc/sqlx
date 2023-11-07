@@ -3,7 +3,7 @@
 This is a fork from the [jmoiron/sqlx](https://github.com/jmoiron/sqlx) to keep some maintanance.
 
 <!-- [![Build Status](https://travis-ci.org/roboninc/sqlx.svg?branch=master)](https://travis-ci.org/roboninc/sqlx) [![Coverage Status](https://coveralls.io/repos/github/roboninc/sqlx/badge.svg?branch=master)](https://coveralls.io/github/roboninc/sqlx?branch=master) [![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/roboninc/sqlx) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/roboninc/sqlx/master/LICENSE) -->
-[![Build Status](https://github.com/roboninc/sqlx/actions/workflows/gotestsum.yml/badge.svg)](https://github.com/roboninc/sqlx/actions/workflows/gotestsum.yml) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/roboninc/sqlx/master/LICENSE)
+[![Build Status](https://github.com/roboninc/sqlx/actions/workflows/gotestsum.yml/badge.svg)](https://github.com/roboninc/sqlx/actions/workflows/gotestsum.yml) [![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/roboninc/sqlx) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/roboninc/sqlx/master/LICENSE)
 
 sqlx is a library which provides a set of extensions on go's standard
 `database/sql` library.  The sqlx versions of `sql.DB`, `sql.TX`, `sql.Stmt`,
