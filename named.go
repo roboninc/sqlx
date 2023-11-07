@@ -468,6 +468,17 @@ func NamedQuery(e Ext, query string, arg interface{}) (*Rows, error) {
 	return e.Queryx(q, args...)
 }
 
+// NamedQueryRow binds a named query and then runs Query on the result using the
+// provided Ext (sqlx.Tx, sqlx.Db).  It works with both structs and with
+// map[string]interface{} types.
+func NamedQueryRow(e Ext, query string, arg interface{}) *Row {
+	q, args, err := bindNamedMapper(BindType(e.DriverName()), query, arg, mapperFor(e))
+	if err != nil {
+		return &Row{err: err}
+	}
+	return e.QueryRowx(q, args...)
+}
+
 // NamedExec uses BindStruct to get a query executable by the driver and
 // then runs Exec on the result.  Returns an error from the binding
 // or the query execution itself.

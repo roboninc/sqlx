@@ -129,6 +129,12 @@ func (db *DB) NamedQueryContext(ctx context.Context, query string, arg interface
 	return NamedQueryContext(ctx, db, query, arg)
 }
 
+// NamedQueryRowContext using this DB.
+// Any named placeholder parameters are replaced with fields from arg.
+func (db *DB) NamedQueryRowContext(ctx context.Context, query string, arg interface{}) *Row {
+	return NamedQueryRowContext(ctx, db, query, arg)
+}
+
 // NamedExecContext using this DB.
 // Any named placeholder parameters are replaced with fields from arg.
 func (db *DB) NamedExecContext(ctx context.Context, query string, arg interface{}) (sql.Result, error) {
@@ -357,6 +363,18 @@ func (tx *Tx) QueryRowxContext(ctx context.Context, query string, args ...interf
 // Any named placeholder parameters are replaced with fields from arg.
 func (tx *Tx) NamedExecContext(ctx context.Context, query string, arg interface{}) (sql.Result, error) {
 	return NamedExecContext(ctx, tx, query, arg)
+}
+
+// NamedQueryContext using this Tx.
+// Any named placeholder parameters are replaced with fields from arg.
+func (tx *Tx) NamedQueryContext(ctx context.Context, query string, arg interface{}) (*Rows, error) {
+	return NamedQueryContext(ctx, tx, query, arg)
+}
+
+// NamedQueryRowContext using this Tx.
+// Any named placeholder parameters are replaced with fields from arg.
+func (tx *Tx) NamedQueryRowContext(ctx context.Context, query string, arg interface{}) *Row {
+	return NamedQueryRowContext(ctx, tx, query, arg)
 }
 
 // SelectContext using the prepared statement.

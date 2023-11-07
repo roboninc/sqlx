@@ -23,21 +23,17 @@ explains how to use `database/sql` along with sqlx.
 
 ## Recent Changes
 
-1.3.0:
+1.4.0:
 
-* `sqlx.DB.Connx(context.Context) *sqlx.Conn`
-* `sqlx.BindDriver(driverName, bindType)`
-* support for `[]map[string]interface{}` to do "batch" insertions
-* allocation & perf improvements for `sqlx.In`
+* `sqlx.DB.NamedQueryRow(query, arg) *sqlx.Row`
+* `sqlx.Tx.NamedQueryRow(query, arg) *sqlx.Row`
+* `sqlx.NamedQueryRow(e, query, arg) *sqlx.Row`
+* `sqlx.DB.NamedQueryRowContext(ctx, query, arg) *sqlx.Row`
+* `sqlx.Tx.NamedQueryContext(ctx, query, arg) (*sqlx.Rows, error)`
+* `sqlx.Tx.NamedQueryRowContext(ctx, query, arg) *sqlx.Row`
+* `sqlx.NamedQueryRowContext(ctx, e, query, arg) *sqlx.Row`
 
-DB.Connx returns an `sqlx.Conn`, which is an `sql.Conn`-alike consistent with
-sqlx's wrapping of other types.
-
-`BindDriver` allows users to control the bindvars that sqlx will use for drivers,
-and add new drivers at runtime.  This results in a very slight performance hit
-when resolving the driver into a bind type (~40ns per call), but it allows users
-to specify what bindtype their driver uses even when sqlx has not been updated
-to know about it by default.
+The addition of these functions is to eliminate asymmetry.
 
 ### Backwards Compatibility
 

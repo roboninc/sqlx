@@ -1,3 +1,4 @@
+//go:build go1.8
 // +build go1.8
 
 package sqlx
@@ -118,6 +119,17 @@ func NamedQueryContext(ctx context.Context, e ExtContext, query string, arg inte
 		return nil, err
 	}
 	return e.QueryxContext(ctx, q, args...)
+}
+
+// NamedQueryRowContext binds a named query and then runs Query on the result using the
+// provided Ext (sqlx.Tx, sqlx.Db).  It works with both structs and with
+// map[string]interface{} types.
+func NamedQueryRowContext(ctx context.Context, e ExtContext, query string, arg interface{}) *Row {
+	q, args, err := bindNamedMapper(BindType(e.DriverName()), query, arg, mapperFor(e))
+	if err != nil {
+		return &Row{err: err}
+	}
+	return e.QueryRowxContext(ctx, q, args...)
 }
 
 // NamedExecContext uses BindStruct to get a query executable by the driver and
