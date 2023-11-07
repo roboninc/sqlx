@@ -658,7 +658,7 @@ func TestNamedQuery(t *testing.T) {
 		// these are tests for #73;  they verify that named queries work if you've
 		// changed the db mapper.  This code checks both NamedQuery "ad-hoc" style
 		// queries and NamedStmt queries, which use different code paths internally.
-		old := *db.Mapper
+		old := db.Mapper
 
 		type JSONPerson struct {
 			FirstName sql.NullString `json:"FIRST"`
@@ -743,7 +743,7 @@ func TestNamedQuery(t *testing.T) {
 
 		check(t, rows)
 
-		db.Mapper = &old
+		db.Mapper = old
 
 		// Test nested structs
 		type Place struct {
