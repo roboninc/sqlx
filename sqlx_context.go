@@ -371,6 +371,22 @@ func (tx *Tx) NamedQueryContext(ctx context.Context, query string, arg interface
 	return NamedQueryContext(ctx, tx, query, arg)
 }
 
+// NamedInQueryContext using this Tx.
+// Any named placeholder parameters are replaced with fields from arg.
+// This query has in clauses.
+func (tx *Tx) NamedInQueryContext(ctx context.Context, query string, arg interface{}) (*Rows, error) {
+	q, args, err := bindNamedMapper(QUESTION, query, arg, tx.Mapper)
+	if err != nil {
+		return nil, err
+	}
+	q, args, err = In(q, args...)
+	if err != nil {
+		return nil, err
+	}
+	q = Rebind(BindType(tx.driverName), q)
+	return tx.QueryxContext(ctx, q, args...)
+}
+
 // NamedQueryRowContext using this Tx.
 // Any named placeholder parameters are replaced with fields from arg.
 func (tx *Tx) NamedQueryRowContext(ctx context.Context, query string, arg interface{}) *Row {

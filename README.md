@@ -25,13 +25,14 @@ explains how to use `database/sql` along with sqlx.
 
 1.4.0:
 
+* `sqlx.NamedQueryRow(e, query, arg) *sqlx.Row`
 * `sqlx.DB.NamedQueryRow(query, arg) *sqlx.Row`
 * `sqlx.Tx.NamedQueryRow(query, arg) *sqlx.Row`
-* `sqlx.NamedQueryRow(e, query, arg) *sqlx.Row`
-* `sqlx.DB.NamedQueryRowContext(ctx, query, arg) *sqlx.Row`
-* `sqlx.Tx.NamedQueryContext(ctx, query, arg) (*sqlx.Rows, error)`
-* `sqlx.Tx.NamedQueryRowContext(ctx, query, arg) *sqlx.Row`
 * `sqlx.NamedQueryRowContext(ctx, e, query, arg) *sqlx.Row`
+* `sqlx.DB.NamedQueryRowContext(ctx, query, arg) *sqlx.Row`
+* `sqlx.Tx.NamedQueryRowContext(ctx, query, arg) *sqlx.Row`
+* `sqlx.Tx.NamedQueryContext(ctx, query, arg) (*sqlx.Rows, error)`
+* `sqlx.Tx.NamedInQueryContext(ctx, query, arg) (*sqlx.Rows, error)`
 
 The addition of these functions is to eliminate asymmetry.
 
